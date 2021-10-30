@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+
+
+<section class="posts">
+  <div class="flex-row-between">
+    <h1>
+      
+      Tag 
+      <b class="command_prompt">#</b>
+      {{page.tag}}
+    <b class="blinking_cursor">_</b>
+    </h1>
+    <a href="{{ site.url }}{{ site.baseurl }}"><i class="fa " aria-hidden="true"></i>« Home</a>
+  </div>
+  <ul>
+    {% for post in site.posts %}
+    {% if post.tags contains page.tag %}
+    <li><a class="post" href="{{ site.url }}{{ site.baseurl }}/{{ post.url }}">{{ post.title }}</a><time
+        datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time></li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="tags">
+  <h1>
+    <b class="command_prompt">#</b>
+    All-tags
+    <b class="blinking_cursor">_</b>
+  </h1>
+  {% assign tags = site.tags | sort %}
+  {% for tag in tags %}
+  <ul>
+    <li>
+	    <a class="posts" href="{{ site.url }}{{ site.baseurl }}/tag/{{ tag | first | slugify }}/">{{ tag[0] | replace:'-', ' '
+        }} ({{ tag | last | size
+        }}){% unless forloop.last %}, {% endunless %}
+      </a>
+    </li>
+  </ul>
+  {% endfor %}
+</section>

@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+<section class="post">
+  <div class="flex-row-between">
+      <a href="{{ site.url }}{{ site.baseurl }}/">« Home</a>
+      <div></div>
+    </button>
+  </div>
+ 
+</section>
+<section>
+    <h1>
+      <b class="command_prompt">#</b>
+      Summary
+      <b class="blinking_cursor">_</b>
+    </h1>
+    <ul>
+    <li><h6>hackthebox - machines, challanges, stay on track, academy</h6></li>
+    <li><h6>security   - tools, OS, some nice stuff</h6>  </li>
+</ul>
+    <section class="tags">
+        <h1>
+          <b class="command_prompt">#</b>
+          All-tags
+        <b class="blinking_cursor">_</b>
+        </h1>
+        {% assign tags = site.tags | sort %}
+        {% for tag in tags %}
+        <ul>
+          <li>
+              <a class="posts" href="{{ site.url }}{{ site.baseurl }}/tag/{{ tag | first | slugify }}/">{{ tag[0] | replace:'-', ' '
+              }} ({{ tag | last | size
+              }}){% unless forloop.last %}, {% endunless %}
+            </a>
+          </li>
+        </ul>
+        {% endfor %}
+      </section>
+
+</section>
+
+
+
+
