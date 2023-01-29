@@ -10,7 +10,7 @@ tags: cve
 ## Product Version
 Vulnerability is present on the following version: 2.2.15 (CMS made simple)
 ![alt text](/assets/images/Pasted image 20211025202455.png)
-<a href="/assets/versions/cmsms-2.2.15-install.zip" download>cmsms-2.2.15-install.zip</a>
+<a href="/download/cmsms/cmsms-2.2.15-install.zip" download>cmsms-2.2.15-install.zip</a>
 
 ![alt text](/assets/images/Pasted image 20211024150751.png)
 All checks enabled at install phase.
