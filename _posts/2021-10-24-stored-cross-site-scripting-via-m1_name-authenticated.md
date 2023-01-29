@@ -9,6 +9,7 @@ tags: cve
 ---
 ## CVE-2021-43154
 This vulnerability was successfully registered in CVE database.
+
 <a href="https://www.cvedetails.com/cve/CVE-2021-43154/">https://www.cvedetails.com/cve/CVE-2021-43154/</a>
 
 ## Product Version
