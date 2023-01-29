@@ -9,7 +9,7 @@ tags: cve
 ---
 ## CVE-2021-43154
 This vulnerability was successfully registered in CVE database.
-<a href="https://www.cvedetails.com/cve/CVE-2021-43154/"></a>
+<a href="https://www.cvedetails.com/cve/CVE-2021-43154/">https://www.cvedetails.com/cve/CVE-2021-43154/</a>
 
 ## Product Version
 Vulnerability is present on the following version: 2.2.15 (CMS made simple)
