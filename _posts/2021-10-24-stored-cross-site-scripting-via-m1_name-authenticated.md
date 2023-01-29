@@ -7,6 +7,11 @@ tags: cve
 ---
 # Stored Cross-Site Scripting via m1_name (Authenticated)
 ---
+## CVE-2021-43154
+This vulnerability was successfully registered in CVE database.
+
+https://www.cvedetails.com/cve/CVE-2021-43154/
+
 ## Product Version
 Vulnerability is present on the following version: 2.2.15 (CMS made simple)
 ![alt text](/images/Pasted image 20211025202455.png)
