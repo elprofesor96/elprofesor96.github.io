@@ -15,9 +15,9 @@ A patch was issued for versions 8.3.0 and above (Grafana)
 Install Grafana version 8.2.7
 The installation steps can be found on official grafana website
 <a href="https://grafana.com/grafana/download/8.2.7">https://grafana.com/grafana/download/8.2.7</a>
-![[/images/Pasted image 20220411204945.png]]
+![alt text](/images/Pasted image 20220411204945.png)
 
-![[/images/Pasted image 20220411202506.png]]
+![alt text](/images/Pasted image 20220411202506.png)
 
 ## Proof of Concept
 
@@ -29,7 +29,7 @@ Also, an admin user can change settings for each user such as Name, Email, Usern
 
 The following image will show an admin changing Name field (display name) for a regular user called elprofesor.
 The XSS payload used for this proof of concept:
-```html
+```javascript
 {{constructor.constructor("alert(1)")()}}
 ```
 Please note that the vulnerability (XSS) is present on both Name and Username fields but if changing the Username field, the specific user can no longer authenticate to grafana app.
