@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Stored Cross-Site Scripting via m1_name (Authenticated)
+title: Stored Cross-Site Scripting via m1_name (Authenticated) cmsms
 description: cve
 summary: cve
 tags: cve
