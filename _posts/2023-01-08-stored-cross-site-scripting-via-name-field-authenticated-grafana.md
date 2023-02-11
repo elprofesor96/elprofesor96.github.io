@@ -10,6 +10,7 @@ tags: cve
 ## Product Version
 
 Vulnerability is present on all versions from 8.1.3 till 8.2.7 (Grafana)
+
 A patch was issued for versions 8.3.0 and above (Grafana)
 
 Install Grafana version 8.2.7
@@ -30,7 +31,7 @@ Also, an admin user can change settings for each user such as Name, Email, Usern
 The following image will show an admin changing Name field (display name) for a regular user called elprofesor.
 The XSS payload used for this proof of concept:
 ```javascript
-{{constructor.constructor("alert(1)")()}}
+{ { constructor.constructor("alert(1)")() } }
 ```
 Please note that the vulnerability (XSS) is present on both Name and Username fields but if changing the Username field, the specific user can no longer authenticate to grafana app.
 A more accurate scenario is changing only Name field which is also the display name of that user.
