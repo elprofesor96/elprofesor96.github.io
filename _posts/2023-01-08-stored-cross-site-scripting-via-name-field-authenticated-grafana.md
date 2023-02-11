@@ -15,15 +15,15 @@ A patch was issued for versions 8.3.0 and above (Grafana)
 Install Grafana version 8.2.7
 The installation steps can be found on official grafana website
 <a href="https://grafana.com/grafana/download/8.2.7">https://grafana.com/grafana/download/8.2.7</a>
-![[images/Pasted image 20220411204945.png]]
+![[/images/Pasted image 20220411204945.png]]
 
-![[images/Pasted image 20220411202506.png]]
+![[/images/Pasted image 20220411202506.png]]
 
 ## Proof of Concept
 
 As an admin, you can list all users from grafana. In our case, we have 2 users, first user  is admin who is also Server Admin and the second one is elprofesor who is a regular user.
 
-![[images/Pasted image 20220411204623.png]]
+![[/images/Pasted image 20220411204623.png]]
 
 Also, an admin user can change settings for each user such as Name, Email, Username and Password. 
 
@@ -34,18 +34,18 @@ The XSS payload used for this proof of concept:
 ```
 Please note that the vulnerability (XSS) is present on both Name and Username fields but if changing the Username field, the specific user can no longer authenticate to grafana app.
 A more accurate scenario is changing only Name field which is also the display name of that user.
-![[images/Pasted image 20220411204753.png]]
+![[/images/Pasted image 20220411204753.png]]
 
 ## Trigger
 
 After elprofesor (regular user) will login to grafana app, the XSS will trigger on his account.
-![[images/Pasted image 20220411205003.png]]
+![[/images/Pasted image 20220411205003.png]]
 
-![[images/Pasted image 20220411205019.png]]
-![[images/Pasted image 20220411205044.png]]
+![[/images/Pasted image 20220411205019.png]]
+![[/images/Pasted image 20220411205044.png]]
 
 Also, this simple XSS payload will crash the web app interface for that user.
-![[images/Pasted image 20220411205143.png]]
+![[/images/Pasted image 20220411205143.png]]
 
 As a real world scenario, this XSS can not be used to hijack user sessions because the compromised account is also a Server Admin and the attacker can simply change passwords for those victim accounts in order to get access to them.
 A more intelligent way to abuse this vulnerability is to make unauthorized actions in the name of the victims or to phish the victims into downloading malicious software on their systems.
