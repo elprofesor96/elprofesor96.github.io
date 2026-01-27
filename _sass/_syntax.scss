@@ -1,0 +1,37 @@
+// Syntax highlighting (Rouge)
+.highlight {
+    background: $bg-primary;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    padding: 15px;
+    overflow-x: auto;
+    margin: 20px 0;
+
+    pre {
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: none;
+    }
+
+    .c, .c1, .cm { color: $text-secondary; } // Comments
+    .k, .kd, .kn, .kp, .kr, .kt { color: $terminal-purple; } // Keywords
+    .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx, .sr { color: $terminal-green; } // Strings
+    .na, .nb, .nc, .nd, .ne, .nf, .nl, .nn, .nt { color: $terminal-cyan; } // Names
+    .m, .mf, .mh, .mi, .mo, .il { color: $terminal-amber; } // Numbers
+    .o, .ow { color: $terminal-red; } // Operators
+    .p { color: $text-primary; } // Punctuation
+    .nv, .vc, .vg, .vi { color: $terminal-amber; } // Variables
+    .err { color: $terminal-red; } // Errors
+    .gd { color: $terminal-red; } // Deleted
+    .gi { color: $terminal-green; } // Inserted
+}
+
+// Inline code
+code.highlighter-rouge {
+    background: $bg-tertiary;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    color: $terminal-cyan;
+}

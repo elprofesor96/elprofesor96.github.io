@@ -1,92 +1,58 @@
-site: elProfesor
-title: elProfesor
-greetings: elProfesor
-description: >-
-  Cybersecurity
-lang: en-US
-timezone:  Europe/Bucharest
-repo:  # site repo [optional]
-data-theme: dark # default theme "dark" | "light"
+# Site settings
+title: elprofesor
+description: "cybersecurity | notes | findings | tools"
+url: "https://elprofesor96.github.io"
+baseurl: ""
 
-author:
-  name: elProfesor
-  bio: Some Reports
-  userpicture: 
-  username: elProfesor # general username
-  github: elprofesor96 # github username
-  twitter: elprofesor # twitter username
-  email:  # email adress
-
-# Font Settings
-googlewebfonts: family=Play:wght@400;700&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,500;1,600;1,700;1,900
-
-# URL settings
-url: "https://elprofesor.io" # Domain Name of host. [username].github.io for github pages
-baseurl: "" # sub folder for jekyll site. only if jekyll site not in root of host. leave blank if not wishd. always add / in front.
-permalink: pretty
-
-# local
-# url: "http://localhost:4000" # 
-# baseurl: "" # 
-
-
+# Build settings
 markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
+highlighter: rouge
+permalink: /:title/
 
+# Sass
+sass:
+  style: compressed
+  sass_dir: _sass
 
+# Exclude from build
 exclude:
-  - .jekyll-cache
-  - .obsidian
   - Gemfile
   - Gemfile.lock
-  - LICENSE.md
+  - node_modules
   - README.md
-  - CONTRIBUTING.md
-  
-compress_html:
-  clippings: all
-  comments: ["<!-- ", " -->"]
+  - package.json
+  - package-lock.json
 
-sass:
-  sass_dir: _sass
-  style: compressed
-
-plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-relative-links
-
+# Collections (optional - for writeups, tools pages)
 collections:
-  pages:
+  writeups:
     output: true
-    permalink: /:name
-  posts:
+    permalink: /writeups/:title/
+  tools:
     output: true
-    permalink: /:year/:month/:day/:slug
-  
+    permalink: /tools/:title/
+
+# Default front matter
 defaults:
-  -
-    scope:
-      path: ""
-    values:
-      layout: "default"
-  -
-    scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "page"
-  -
-    scope:
+  - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
+  - scope:
+      path: ""
+      type: "writeups"
+    values:
+      layout: "post"
 
-relative_links:
-  enabled:     true
-  collections: false
+# Pagination (optional)
+paginate: 10
+paginate_path: "/page/:num/"
 
-
+# Your socials - UPDATE THESE WITH YOUR LINKS
+socials:
+  github: "https://github.com/elprofesor96"
+  twitter: "#"
+  linkedin: "#"
+  telegram: "#"
+  discord: "#"

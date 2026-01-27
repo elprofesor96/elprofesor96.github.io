@@ -1,102 +1,33 @@
----
-layout: compress
----
-
 <!DOCTYPE html>
 <html lang="en">
-{% include head.html %}
- <!-- Global site tag (gtag.js) - Google Analytics -->
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-3EP7KLCYVP"></script>
- <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
- <script>
-   window.dataLayer = window.dataLayer || [];
-   function gtag() { dataLayer.push(arguments); }
-   gtag('js', new Date());
-
- </script>
-
-
-
-
-<body>
-  <main>
-    {% include anchor_headings.html html=content anchorBody="#" %}
-  </main>
-
-  
-
-  <script>
-    function setTheme(theme) {
-      if (theme === "dark") {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        window.localStorage.setItem('theme', 'dark');
-        document.getElementById("theme-toggle").classList.add('sun');
-        document.getElementById("theme-toggle").classList.remove('moon');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        window.localStorage.setItem('theme', 'light');
-        document.getElementById("theme-toggle").classList.add('moon');
-        document.getElementById("theme-toggle").classList.remove('sun');
-      }
-    }
-
-    let theme = localStorage.getItem('theme');
-
-    theme = theme || (window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light' : 'light');
-
-    setTheme(theme);
-
-    function modeSwitcher() {
-      let currentMode = document.documentElement.getAttribute('data-theme');
-
-      if (currentMode === "dark") {
-        setTheme('dark');
-      } else {
-        setTheme('dark');
-      }
-    }
-  </script>
-
-
-
-</body>
-
-<footer class="social-footer">
-  <div class="social-footer-icons">
-    <a href="https://www.linkedin.com/in/razvan-radeanu-944814209/" title="Linkedin profile" target="_blank"
-    rel="noopener noreferrer"><i class="fa fa-linkedin-square" aria-hidden="true" ></i></a>
-
-    <a href="https://app.hackthebox.eu/profile/41426" title="Hackthebox profile" target="_blank"
-    rel="noopener noreferrer"><i class="fa2 iconify" data-icon="simple-icons:hackthebox" aria-hidden="true"></i></a>
-
-    <a href="https://github.com/elprofesor96" title="Github profile" target="_blank"
-      rel="noopener noreferrer"><i class="fa fa-github" aria-hidden="true" ></i></a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | truncate: 160 }}">
     
-  </div>
- 
-
-</footer>
-<footer class="social-footer">
-  
-  <p class="social-footer-copy">&copy; 2021-2024 elProfesor</p>
-
-</footer>
-
-
-{% if page.url == '/' %}
-  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/simple-jekyll-search.js"></script>
-  <script>
-    var sjs = SimpleJekyllSearch({
-      searchInput: document.getElementById('search-input'),
-      resultsContainer: document.getElementById('search-results'),
-		      json: '{{ site.url }}{{ site.baseurl }}/search.json',
-      searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
-      noResultsText: 'No results found..',
-      limit: 10,
-      fuzzy: true,
-    })
-  </script>
-  {% endif %}
-
-
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ '/favicon.png' | relative_url }}">
+    
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+</head>
+<body>
+    {% include header.html %}
+    {% include nav.html %}
+    
+    {{ content }}
+    
+    {% include footer.html %}
+    
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
 </html>

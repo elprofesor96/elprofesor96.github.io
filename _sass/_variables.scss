@@ -1,0 +1,24 @@
+// Colors
+$bg-primary: #0a0a0a;
+$bg-secondary: #0f0f0f;
+$bg-tertiary: #151515;
+$terminal-green: #00ff41;
+$terminal-green-dim: #00cc33;
+$terminal-amber: #ffb000;
+$terminal-cyan: #00d4ff;
+$terminal-red: #ff3366;
+$terminal-purple: #bd93f9;
+$text-primary: #c9d1d9;
+$text-secondary: #6e7681;
+$border-color: #1a1a1a;
+
+// Glows
+$glow-green: 0 0 10px rgba(0, 255, 65, 0.5), 0 0 20px rgba(0, 255, 65, 0.3), 0 0 30px rgba(0, 255, 65, 0.1);
+
+// Fonts
+$font-mono: 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
+$font-terminal: 'Share Tech Mono', monospace;
+
+// Breakpoints
+$mobile: 600px;
+$tablet: 900px;

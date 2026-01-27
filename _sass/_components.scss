@@ -1,0 +1,427 @@
+// Post Card
+.post-card {
+    background: $bg-secondary;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    padding: 25px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: $terminal-green;
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+    }
+
+    &:hover {
+        border-color: #252525;
+        transform: translateX(3px);
+
+        &::before {
+            transform: scaleY(1);
+        }
+    }
+}
+
+.post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 11px;
+    color: $text-secondary;
+    margin-bottom: 12px;
+
+    .date::before { content: '📅 '; }
+    .read-time::before { content: '⏱️ '; }
+}
+
+.difficulty {
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    &.easy {
+        background: rgba($terminal-green, 0.15);
+        color: $terminal-green;
+    }
+    &.medium {
+        background: rgba($terminal-amber, 0.15);
+        color: $terminal-amber;
+    }
+    &.hard {
+        background: rgba($terminal-red, 0.15);
+        color: $terminal-red;
+    }
+}
+
+.post-title {
+    font-size: 16px;
+    color: $text-primary;
+    margin-bottom: 10px;
+    text-decoration: none;
+    display: block;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $terminal-cyan;
+    }
+
+    &::before {
+        content: '# cat ';
+        color: $terminal-green;
+        font-size: 13px;
+    }
+}
+
+.post-excerpt {
+    color: $text-secondary;
+    font-size: 12px;
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    background: $bg-tertiary;
+    color: $terminal-purple;
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-size: 10px;
+    border: 1px solid $border-color;
+    transition: all 0.2s ease;
+    text-decoration: none;
+
+    &::before { content: '#'; }
+
+    &:hover {
+        border-color: $terminal-purple;
+        background: rgba($terminal-purple, 0.1);
+        color: $terminal-purple;
+    }
+}
+
+// Sidebar Widgets
+.sidebar-widget {
+    background: $bg-secondary;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    padding: 20px;
+}
+
+.widget-title {
+    color: $terminal-amber;
+    font-size: 11px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $border-color;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    &::before {
+        content: '> ';
+        color: $terminal-green;
+    }
+}
+
+// Socials Widget
+.socials-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: $text-secondary;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    background: $bg-primary;
+
+    &:hover {
+        color: $terminal-green;
+        background: rgba($terminal-green, 0.05);
+    }
+
+    svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+    }
+}
+
+// Terminal Widget
+.terminal-widget {
+    background: $bg-primary;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.terminal-header {
+    background: $bg-tertiary;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid $border-color;
+}
+
+.terminal-btn {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+
+    &.red { background: #ff5f56; }
+    &.yellow { background: #ffbd2e; }
+    &.green { background: #27ca40; }
+}
+
+.terminal-body {
+    padding: 15px;
+    font-size: 11px;
+    min-height: 120px;
+}
+
+.terminal-line {
+    margin-bottom: 6px;
+
+    .prompt { color: $terminal-green; }
+    .command { color: $terminal-cyan; }
+    .output { color: $text-secondary; }
+}
+
+.cursor-blink {
+    display: inline-block;
+    width: 8px;
+    height: 14px;
+    background: $terminal-green;
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+// Search Widget
+.search-box {
+    display: flex;
+    background: $bg-primary;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    overflow: hidden;
+
+    input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        padding: 10px 12px;
+        color: $text-primary;
+        font-family: $font-mono;
+        font-size: 12px;
+        outline: none;
+
+        &::placeholder {
+            color: $text-secondary;
+        }
+    }
+
+    button {
+        background: $terminal-green;
+        border: none;
+        padding: 10px 14px;
+        color: $bg-primary;
+        cursor: pointer;
+        font-family: $font-mono;
+        font-weight: bold;
+        transition: background 0.2s ease;
+
+        &:hover {
+            background: $terminal-green-dim;
+        }
+    }
+}
+
+// Stats Widget
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 12px;
+    background: $bg-primary;
+    border-radius: 3px;
+}
+
+.stat-value {
+    font-size: 20px;
+    color: $terminal-cyan;
+    font-weight: bold;
+}
+
+.stat-label {
+    font-size: 9px;
+    color: $text-secondary;
+    text-transform: uppercase;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+}
+
+// Post Content (for single post pages)
+.post-content {
+    h1, h2, h3, h4 {
+        margin-top: 30px;
+        margin-bottom: 15px;
+        color: $terminal-amber;
+
+        &::before {
+            color: $terminal-green;
+            margin-right: 10px;
+        }
+    }
+
+    h1::before { content: '#'; }
+    h2::before { content: '##'; }
+    h3::before { content: '###'; }
+
+    p {
+        margin-bottom: 15px;
+        color: $text-secondary;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    ul, ol {
+        margin-bottom: 15px;
+        padding-left: 25px;
+        color: $text-secondary;
+
+        li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+    }
+
+    blockquote {
+        border-left: 3px solid $terminal-green;
+        padding-left: 20px;
+        margin: 20px 0;
+        color: $text-secondary;
+        font-style: italic;
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid $border-color;
+        margin: 30px 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 13px;
+
+        th, td {
+            border: 1px solid $border-color;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: $bg-tertiary;
+            color: $terminal-amber;
+        }
+
+        td {
+            color: $text-secondary;
+        }
+    }
+}
+
+// Post Header (single post page)
+.post-header {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $border-color;
+
+    .post-title {
+        font-size: 28px;
+        margin-bottom: 15px;
+
+        &::before {
+            font-size: 20px;
+        }
+    }
+}
+
+// Code blocks with copy button
+.code-block {
+    background: $bg-primary;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.code-header {
+    background: $bg-tertiary;
+    padding: 8px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $border-color;
+}
+
+.code-lang {
+    color: $terminal-amber;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.code-copy {
+    background: transparent;
+    border: 1px solid $border-color;
+    color: $text-secondary;
+    padding: 3px 8px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: $font-mono;
+    font-size: 9px;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $terminal-green;
+        color: $terminal-green;
+    }
+}
+
+.code-content {
+    padding: 15px;
+    overflow-x: auto;
+    font-size: 12px;
+}

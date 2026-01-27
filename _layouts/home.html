@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<main class="main-content">
+    <section class="posts-section">
+        <h2>Recent Posts</h2>
+        
+        {% for post in site.posts %}
+        <article class="post-card">
+            <div class="post-meta">
+                <span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
+                {% if post.read_time %}<span class="read-time">{{ post.read_time }}</span>{% endif %}
+                {% if post.difficulty %}<span class="difficulty {{ post.difficulty | downcase }}">{{ post.difficulty }}</span>{% endif %}
+            </div>
+            <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a>
+            <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 200 }}</p>
+            {% if post.tags.size > 0 %}
+            <div class="post-tags">
+                {% for tag in post.tags %}
+                <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="tag">{{ tag }}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </article>
+        {% endfor %}
+        
+        {% if site.posts.size == 0 %}
+        <p style="color: #6e7681;">No posts yet. Create your first post in _posts/</p>
+        {% endif %}
+    </section>
+    
+    {% include sidebar.html %}
+</main>
