@@ -28,18 +28,32 @@
             transform: scaleY(1);
         }
     }
+
+    @media (max-width: $mobile) {
+        padding: 18px;
+        margin-bottom: 12px;
+
+        &:hover {
+            transform: none;
+        }
+    }
 }
 
 .post-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 10px;
     font-size: 11px;
     color: $text-secondary;
     margin-bottom: 12px;
 
     .date::before { content: '📅 '; }
     .read-time::before { content: '⏱️ '; }
+
+    @media (max-width: $mobile) {
+        font-size: 10px;
+        gap: 8px;
+    }
 }
 
 .difficulty {
@@ -61,6 +75,11 @@
         background: rgba($terminal-red, 0.15);
         color: $terminal-red;
     }
+
+    @media (max-width: $mobile) {
+        font-size: 8px;
+        padding: 2px 6px;
+    }
 }
 
 .post-title {
@@ -80,6 +99,14 @@
         color: $terminal-green;
         font-size: 13px;
     }
+
+    @media (max-width: $mobile) {
+        font-size: 14px;
+
+        &::before {
+            font-size: 11px;
+        }
+    }
 }
 
 .post-excerpt {
@@ -87,6 +114,12 @@
     font-size: 12px;
     margin-bottom: 15px;
     line-height: 1.7;
+
+    @media (max-width: $mobile) {
+        font-size: 11px;
+        margin-bottom: 12px;
+        line-height: 1.6;
+    }
 }
 
 .post-tags {
@@ -112,6 +145,11 @@
         background: rgba($terminal-purple, 0.1);
         color: $terminal-purple;
     }
+
+    @media (max-width: $mobile) {
+        font-size: 9px;
+        padding: 2px 6px;
+    }
 }
 
 // Sidebar Widgets
@@ -120,6 +158,10 @@
     border: 1px solid $border-color;
     border-radius: 3px;
     padding: 20px;
+
+    @media (max-width: $mobile) {
+        padding: 15px;
+    }
 }
 
 .widget-title {
@@ -135,6 +177,12 @@
         content: '> ';
         color: $terminal-green;
     }
+
+    @media (max-width: $mobile) {
+        font-size: 10px;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+    }
 }
 
 // Socials Widget
@@ -142,6 +190,12 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    @media (max-width: $tablet) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
 }
 
 .social-link {
@@ -165,6 +219,26 @@
         width: 16px;
         height: 16px;
         fill: currentColor;
+        flex-shrink: 0;
+    }
+
+    @media (max-width: $tablet) {
+        padding: 8px 12px;
+        flex: 1;
+        min-width: 120px;
+        justify-content: center;
+    }
+
+    @media (max-width: $mobile) {
+        font-size: 11px;
+        padding: 10px;
+        min-width: auto;
+        flex: 1 1 calc(50% - 4px);
+
+        svg {
+            width: 14px;
+            height: 14px;
+        }
     }
 }
 
@@ -193,12 +267,23 @@
     &.red { background: #ff5f56; }
     &.yellow { background: #ffbd2e; }
     &.green { background: #27ca40; }
+
+    @media (max-width: $mobile) {
+        width: 8px;
+        height: 8px;
+    }
 }
 
 .terminal-body {
     padding: 15px;
     font-size: 11px;
-    min-height: 120px;
+    min-height: 100px;
+
+    @media (max-width: $mobile) {
+        padding: 12px;
+        font-size: 10px;
+        min-height: 80px;
+    }
 }
 
 .terminal-line {
@@ -217,6 +302,11 @@
     animation: blink 1s step-end infinite;
     vertical-align: middle;
     margin-left: 2px;
+
+    @media (max-width: $mobile) {
+        width: 6px;
+        height: 12px;
+    }
 }
 
 @keyframes blink {
@@ -241,9 +331,15 @@
         font-family: $font-mono;
         font-size: 12px;
         outline: none;
+        min-width: 0; // Fix for flex overflow
 
         &::placeholder {
             color: $text-secondary;
+        }
+
+        @media (max-width: $mobile) {
+            padding: 8px 10px;
+            font-size: 11px;
         }
     }
 
@@ -256,9 +352,14 @@
         font-family: $font-mono;
         font-weight: bold;
         transition: background 0.2s ease;
+        flex-shrink: 0;
 
         &:hover {
             background: $terminal-green-dim;
+        }
+
+        @media (max-width: $mobile) {
+            padding: 8px 12px;
         }
     }
 }
@@ -268,6 +369,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
+
+    @media (max-width: $mobile) {
+        gap: 8px;
+    }
 }
 
 .stat-item {
@@ -275,12 +380,20 @@
     padding: 12px;
     background: $bg-primary;
     border-radius: 3px;
+
+    @media (max-width: $mobile) {
+        padding: 10px 8px;
+    }
 }
 
 .stat-value {
     font-size: 20px;
     color: $terminal-cyan;
     font-weight: bold;
+
+    @media (max-width: $mobile) {
+        font-size: 18px;
+    }
 }
 
 .stat-label {
@@ -289,6 +402,10 @@
     text-transform: uppercase;
     margin-top: 4px;
     letter-spacing: 0.5px;
+
+    @media (max-width: $mobile) {
+        font-size: 8px;
+    }
 }
 
 // Post Content (for single post pages)
@@ -302,6 +419,11 @@
             color: $terminal-green;
             margin-right: 10px;
         }
+
+        @media (max-width: $mobile) {
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
     }
 
     h1::before { content: '#'; }
@@ -313,6 +435,12 @@
         color: $text-secondary;
         font-size: 14px;
         line-height: 1.8;
+
+        @media (max-width: $mobile) {
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
     }
 
     ul, ol {
@@ -323,6 +451,15 @@
         li {
             margin-bottom: 8px;
             font-size: 14px;
+
+            @media (max-width: $mobile) {
+                font-size: 13px;
+                margin-bottom: 6px;
+            }
+        }
+
+        @media (max-width: $mobile) {
+            padding-left: 20px;
         }
     }
 
@@ -332,12 +469,21 @@
         margin: 20px 0;
         color: $text-secondary;
         font-style: italic;
+
+        @media (max-width: $mobile) {
+            padding-left: 15px;
+            margin: 15px 0;
+        }
     }
 
     hr {
         border: none;
         border-top: 1px solid $border-color;
         margin: 30px 0;
+
+        @media (max-width: $mobile) {
+            margin: 20px 0;
+        }
     }
 
     table {
@@ -345,11 +491,19 @@
         border-collapse: collapse;
         margin: 20px 0;
         font-size: 13px;
+        display: block;
+        overflow-x: auto;
 
         th, td {
             border: 1px solid $border-color;
             padding: 10px;
             text-align: left;
+            white-space: nowrap;
+
+            @media (max-width: $mobile) {
+                padding: 8px;
+                font-size: 11px;
+            }
         }
 
         th {
@@ -359,6 +513,14 @@
 
         td {
             color: $text-secondary;
+        }
+    }
+
+    // Code blocks
+    pre {
+        @media (max-width: $mobile) {
+            font-size: 11px;
+            padding: 12px;
         }
     }
 }
@@ -376,6 +538,19 @@
         &::before {
             font-size: 20px;
         }
+
+        @media (max-width: $mobile) {
+            font-size: 20px;
+
+            &::before {
+                font-size: 14px;
+            }
+        }
+    }
+
+    @media (max-width: $mobile) {
+        margin-bottom: 25px;
+        padding-bottom: 15px;
     }
 }
 
@@ -386,6 +561,10 @@
     border-radius: 3px;
     overflow: hidden;
     margin: 20px 0;
+
+    @media (max-width: $mobile) {
+        margin: 15px 0;
+    }
 }
 
 .code-header {
@@ -395,12 +574,20 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid $border-color;
+
+    @media (max-width: $mobile) {
+        padding: 6px 12px;
+    }
 }
 
 .code-lang {
     color: $terminal-amber;
     font-size: 10px;
     text-transform: uppercase;
+
+    @media (max-width: $mobile) {
+        font-size: 9px;
+    }
 }
 
 .code-copy {
@@ -418,10 +605,20 @@
         border-color: $terminal-green;
         color: $terminal-green;
     }
+
+    @media (max-width: $mobile) {
+        font-size: 8px;
+        padding: 2px 6px;
+    }
 }
 
 .code-content {
     padding: 15px;
     overflow-x: auto;
     font-size: 12px;
+
+    @media (max-width: $mobile) {
+        padding: 12px;
+        font-size: 11px;
+    }
 }

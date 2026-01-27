@@ -5,6 +5,10 @@
     border-bottom: 1px solid $border-color;
     position: relative;
     z-index: 1;
+
+    @media (max-width: $mobile) {
+        padding: 30px 15px 25px;
+    }
 }
 
 .site-title {
@@ -23,7 +27,7 @@
     }
 
     @media (max-width: $mobile) {
-        font-size: 32px;
+        font-size: 28px;
         letter-spacing: 2px;
     }
 }
@@ -38,6 +42,11 @@
         content: '// ';
         color: $terminal-green;
     }
+
+    @media (max-width: $mobile) {
+        font-size: 11px;
+        margin-top: 10px;
+    }
 }
 
 // Navigation
@@ -48,6 +57,10 @@
     position: sticky;
     top: 0;
     z-index: 100;
+
+    @media (max-width: $mobile) {
+        padding: 0 10px;
+    }
 }
 
 .nav-container {
@@ -56,6 +69,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: $mobile) {
+        flex-direction: column;
+        gap: 0;
+    }
 }
 
 .nav-prompt {
@@ -66,11 +84,18 @@
     .user { color: $terminal-red; }
     .host { color: $terminal-cyan; }
     .path { color: $terminal-purple; }
+
+    @media (max-width: $mobile) {
+        font-size: 12px;
+        padding: 10px 0 5px;
+    }
 }
 
 .nav-links {
     display: flex;
     gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
 
     a {
         color: $text-secondary;
@@ -100,11 +125,9 @@
             color: $terminal-green;
             border-bottom-color: $terminal-green;
         }
-    }
 
-    @media (max-width: $mobile) {
-        a {
-            padding: 15px 10px;
+        @media (max-width: $mobile) {
+            padding: 10px 12px;
             font-size: 11px;
 
             &::before {
@@ -127,6 +150,8 @@
 
     @media (max-width: $tablet) {
         grid-template-columns: 1fr;
+        padding: 25px 15px;
+        gap: 30px;
     }
 }
 
@@ -157,6 +182,11 @@
             height: 1px;
             background: $border-color;
         }
+
+        @media (max-width: $mobile) {
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
     }
 }
 
@@ -165,6 +195,32 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @media (max-width: $tablet) {
+        // On mobile, show sidebar in a 2-column grid where possible
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+
+        // Make terminal widget span full width
+        .terminal-widget {
+            grid-column: 1 / -1;
+        }
+
+        // Make socials span full width at the bottom
+        .sidebar-widget:last-child {
+            grid-column: 1 / -1;
+        }
+    }
+
+    @media (max-width: $mobile) {
+        grid-template-columns: 1fr;
+        
+        .terminal-widget,
+        .sidebar-widget:last-child {
+            grid-column: 1;
+        }
+    }
 }
 
 // Footer
@@ -182,6 +238,14 @@
 
         .name {
             color: $terminal-green;
+        }
+    }
+
+    @media (max-width: $mobile) {
+        padding: 20px 15px;
+
+        p {
+            font-size: 10px;
         }
     }
 }
