@@ -1,0 +1,23 @@
+// Search Results
+#search-results {
+    margin-top: 10px;
+}
+
+.search-result-item {
+    display: block;
+    padding: 10px 12px;
+    background: $bg-primary;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    color: $text-secondary;
+    text-decoration: none;
+    font-size: 12px;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $terminal-green;
+        color: $terminal-green;
+        background: rgba($terminal-green, 0.05);
+    }
+}

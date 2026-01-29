@@ -5,7 +5,6 @@
         </div>
         <div class="nav-links">
             <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>home</a>
-            <a href="{{ '/writeups/' | relative_url }}" {% if page.url contains '/writeups' %}class="active"{% endif %}>writeups</a>
             <a href="{{ '/tools/' | relative_url }}" {% if page.url contains '/tools' %}class="active"{% endif %}>tools</a>
             <a href="{{ '/resources/' | relative_url }}" {% if page.url contains '/resources' %}class="active"{% endif %}>resources</a>
             <a href="{{ '/about/' | relative_url }}" {% if page.url contains '/about' %}class="active"{% endif %}>about</a>

@@ -2,10 +2,11 @@
     <!-- Search Widget -->
     <div class="sidebar-widget">
         <h3 class="widget-title">Search</h3>
-        <form class="search-box" action="{{ '/search/' | relative_url }}" method="get">
-            <input type="text" name="q" placeholder="grep -r ...">
-            <button type="submit">🔍</button>
-        </form>
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="grep -r ..." autocomplete="off">
+            <button id="search-btn">🔍</button>
+        </div>
+        <div id="search-results"></div>
     </div>
 
     <!-- Terminal Widget -->
@@ -43,16 +44,16 @@
                 <div class="stat-label">Posts</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value">{{ site.writeups | size | default: 0 }}</div>
-                <div class="stat-label">CTFs</div>
-            </div>
-            <div class="stat-item">
                 <div class="stat-value">{{ site.tools | size | default: 0 }}</div>
                 <div class="stat-label">Tools</div>
             </div>
             <div class="stat-item">
                 <div class="stat-value">{{ site.tags | size }}</div>
                 <div class="stat-label">Tags</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">{{ site.pages | size }}</div>
+                <div class="stat-label">Pages</div>
             </div>
         </div>
     </div>
