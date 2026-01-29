@@ -38,7 +38,7 @@
     <!-- Stats Widget -->
     <div class="sidebar-widget">
         <h3 class="widget-title">Stats</h3>
-        <div class="stats-grid">
+        <div class="stats-grid stats-grid-3">
             <div class="stat-item">
                 <div class="stat-value">{{ site.posts | size }}</div>
                 <div class="stat-label">Posts</div>
@@ -48,12 +48,8 @@
                 <div class="stat-label">Tools</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value">{{ site.tags | size }}</div>
-                <div class="stat-label">Tags</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value">{{ site.pages | size }}</div>
-                <div class="stat-label">Pages</div>
+                <div class="stat-value">{% assign cve_count = 0 %}{% for post in site.posts %}{% if post.tags contains 'cve' %}{% assign cve_count = cve_count | plus: 1 %}{% endif %}{% endfor %}{{ cve_count }}</div>
+                <div class="stat-label">CVEs</div>
             </div>
         </div>
     </div>
