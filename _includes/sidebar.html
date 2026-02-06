@@ -44,7 +44,7 @@
                 <div class="stat-label">Posts</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value">{{ site.tools | size | default: 0 }}</div>
+                <div class="stat-value">{% assign tool_count = 0 %}{% for post in site.posts %}{% if post.tags contains 'tool' %}{% assign tool_count = tool_count | plus: 1 %}{% endif %}{% endfor %}{{ tool_count }}</div>
                 <div class="stat-label">Tools</div>
             </div>
             <div class="stat-item">
